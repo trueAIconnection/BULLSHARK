@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task #1: Proposal Scoping, Costing and Value Logic | Bullshark Capability Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-primary: #000000;
+            --color-secondary: #ffffff;
+            --color-accent: #00D9C8;
+            --color-accent-dark: #00B3A6;
+            --color-gray-50: #F9FAFB;
+            --color-gray-100: #F3F4F6;
+            --color-gray-200: #E5E7EB;
+            --color-gray-300: #D1D5DB;
+            --color-gray-400: #9CA3AF;
+            --color-gray-500: #6B7280;
+            --color-gray-600: #4B5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1F2937;
+            --color-gray-900: #111827;
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --space-xs: 0.25rem;
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+            --space-2xl: 3rem;
+            --space-3xl: 4rem;
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-gray-900);
+            background: var(--color-secondary);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+        
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-2xl) var(--space-xl);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: var(--space-lg);
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: var(--space-sm);
+        }
+        
+        h4 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: var(--space-sm);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+        }
+        
+        .highlight {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.1em 0.3em;
+            display: inline-block;
+            line-height: 1.2;
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-dark {
+            background: var(--color-primary);
+            color: var(--color-secondary);
+        }
+        
+        .section-gray {
+            background: var(--color-gray-50);
+        }
+        
+        .card {
+            background: var(--color-secondary);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .card-dark {
+            background: var(--color-primary);
+            color: var(--color-secondary);
+            border: none;
+        }
+        
+        .grid {
+            display: grid;
+            gap: var(--space-xl);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .table th {
+            text-align: left;
+            padding: var(--space-md);
+            background: var(--color-gray-50);
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-gray-900);
+        }
+        
+        .table td {
+            padding: var(--space-md);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            padding-left: var(--space-xl);
+            position: relative;
+            margin-bottom: var(--space-sm);
+        }
+        
+        ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+        
+        .divider {
+            height: 2px;
+            background: var(--color-gray-900);
+            margin: var(--space-2xl) 0;
+        }
+        
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mb-2xl { margin-bottom: var(--space-2xl); }
+        .mb-3xl { margin-bottom: var(--space-3xl); }
+        
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+        .mt-2xl { margin-top: var(--space-2xl); }
+        .mt-3xl { margin-top: var(--space-3xl); }
+        
+        .text-accent { color: var(--color-accent); }
+        .caption {
+            font-size: 0.75rem;
+            line-height: 1.4;
+            color: var(--color-gray-500);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .container, .container-narrow {
+                padding: var(--space-xl) var(--space-md);
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.25rem;
+            }
+            
+            h3 {
+                font-size: 1.125rem;
+            }
+            
+            .section {
+                padding: var(--space-xl) 0;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .card {
+                padding: var(--space-md);
+            }
+            
+            .table {
+                font-size: 0.75rem;
+            }
+            
+            .table th,
+            .table td {
+                padding: var(--space-sm);
+            }
+            
+            /* Make tables scroll horizontally on mobile */
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        @media print {
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+            
+            body {
+                font-size: 12pt;
+            }
+            
+            .section {
+                padding: 1.5cm 0;
+                page-break-inside: avoid;
+            }
+            
+            .card {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="section-dark">
+        <div class="container">
+            <div class="caption mb-md text-accent">CAPABILITY TEST SUBMISSION</div>
+            <h1>Task #1: Proposal Scoping, <span class="highlight">Costing and Value Logic</span></h1>
+            <p style="color: var(--color-gray-400);">Phoenix Ingredients Ltd. — Brand Refresh, Website Rebuild & Marketing Retainer</p>
+        </div>
+    </div>
+
+    <!-- 1. Scope Breakdown -->
+    <div class="section">
+        <div class="container-narrow">
+            <h2 class="mb-xl">1. SCOPE BREAKDOWN</h2>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">1A. BRAND REFRESH</h3>
+                <h4>Why It Matters:</h4>
+                <p>Phoenix has grown through strategic positioning and quality focus. A brand refresh signals market relevance, builds trust, and expresses your values to new audiences.</p>
+                
+                <h4 class="mt-lg">Deliverables:</h4>
+                <ul>
+                    <li>Updated logo with flexible variations (all formats)</li>
+                    <li>Comprehensive brand guidelines (colors, typography, usage rules)</li>
+                    <li>Packaging design templates</li>
+                    <li>Strategic direction document</li>
+                </ul>
+                
+                <p class="mt-lg mb-sm"><strong>Business Outcome:</strong> Cohesive brand identity that elevates market presence and supports premium positioning.</p>
+            </div>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">1B. WEBSITE REBUILD</h3>
+                <h4>What You Get:</h4>
+                <ul>
+                    <li>30+ custom-designed pages aligned with new brand</li>
+                    <li>Full e-commerce functionality (checkout, payments, order management)</li>
+                    <li>120 SKU product catalogue with advanced SEO optimization</li>
+                    <li>Multilingual capability (English + Maltese)</li>
+                    <li>Business automation (inventory sync, order notifications, shipping)</li>
+                    <li>Technical SEO foundation (links, keywords, analytics)</li>
+                </ul>
+                
+                <p class="mt-lg mb-sm"><strong>Business Outcome:</strong> High-performing SEO power-engine to drive digital sales channel and provide customer data insights.</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="mb-md">1C. MARKETING RETAINER</h3>
+                <h4>What You Get:</h4>
+                <ul>
+                    <li>Branded social media content (Instagram, Facebook, LinkedIn)</li>
+                    <li>Paid advertising campaigns (Meta, Google)</li>
+                    <li>Monthly KPI tracking reports (reach, engagement, conversions, ROI)</li>
+                    <li>Strategic content creation aligned with business goals</li>
+                </ul>
+                
+                <p class="mt-lg mb-sm"><strong>Business Outcome:</strong> Measurable growth in brand visibility, customer acquisition, lead conversion and revenue.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Phasing Strategy -->
+    <div class="section section-gray">
+        <div class="container-narrow">
+            <h2 class="mb-xl">2. PHASING STRATEGY</h2>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">PHASE 1: BRAND REFRESH (4 Weeks)</h3>
+                
+                <h4>Week 1 - Discovery</h4>
+                <ul class="mb-md">
+                    <li>Gather current processes, tech stack, PR content</li>
+                    <li>Study workflow and market positioning</li>
+                    <li>Develop structured strategy</li>
+                </ul>
+                
+                <h4>Week 2 - Concept Development</h4>
+                <ul class="mb-md">
+                    <li>Present initial sketches to stakeholders</li>
+                    <li>Gather feedback on preferences and ideas</li>
+                    <li>Deliver variations and mockups</li>
+                </ul>
+                
+                <h4>Weeks 3-4 - Finalization</h4>
+                <ul class="mb-md">
+                    <li>Align creative direction with business goals</li>
+                    <li>Produce final polished assets</li>
+                </ul>
+                
+                <p class="mt-lg"><strong>Final Output:</strong> Logo files (all formats), brand guidelines, packaging templates</p>
+            </div>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">PHASE 2: WEBSITE REBUILD (6 Weeks)</h3>
+                
+                <h4>Week 5 - Audit & Requirements</h4>
+                <ul class="mb-md">
+                    <li>Handover session with internal team</li>
+                    <li>Understand workflows and product info</li>
+                    <li>Identify gaps and improvements</li>
+                </ul>
+                
+                <h4>Weeks 6-7 - Design Strategy</h4>
+                <ul class="mb-md">
+                    <li>Present responsive mockups (mobile + desktop)</li>
+                    <li>Show website wireframes</li>
+                    <li>Deliver content strategy and site architecture</li>
+                </ul>
+                
+                <h4>Weeks 8-10 - Development</h4>
+                <ul class="mb-md">
+                    <li>Build fully functional website</li>
+                    <li>Integrate e-commerce and product catalogue</li>
+                    <li>Implement SEO and multilingual setup</li>
+                </ul>
+                
+                <p class="mt-lg"><strong>Final Output:</strong> Finalised website, handover with CMS training and documentation</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="mb-md">PHASE 3: MARKETING RETAINER</h3>
+                
+                <h4>Weeks 11-13 - Strategy Development</h4>
+                <ul class="mb-md">
+                    <li>Create long-term marketing plan</li>
+                    <li>Launch rebranding campaign</li>
+                    <li>Establish baseline audience metrics and KPIs</li>
+                    <li>Ready for product launch</li>
+                </ul>
+                
+                <h4>Weeks 14-16 - Implementation & Testing</h4>
+                <ul class="mb-md">
+                    <li>Develop content templates and workflows</li>
+                    <li>Run A/B tests across channels</li>
+                    <li>Optimize based on performance data</li>
+                </ul>
+                
+                <h4>Week 17+ - Execution</h4>
+                <ul class="mb-md">
+                    <li>Execute scheduled posts across all channels</li>
+                    <li>Deliver monthly KPI reports</li>
+                    <li>Continuous optimization</li>
+                </ul>
+                
+                <p class="mt-lg"><strong>Ongoing Output:</strong> Monthly content, ad campaigns, performance reports</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Pricing Structure -->
+    <div class="section">
+        <div class="container-narrow">
+            <h2 class="mb-xl">3. PRICING STRUCTURE & COMMERCIAL RATIONALE</h2>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">BRAND DEVELOPMENT — €10,000</h3>
+                
+                <table class="table mb-lg">
+                    <tr>
+                        <td>Creative Director</td>
+                        <td>40 hours @ €85/hr</td>
+                        <td><strong>€3,400</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Brand Designer</td>
+                        <td>80 hours @ €55/hr</td>
+                        <td><strong>€4,400</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Total Internal Cost</strong></td>
+                        <td><strong>€7,800</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Gross Total</strong></td>
+                        <td><strong>€10,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Margin</strong></td>
+                        <td><strong>€2,200 (28%)</strong></td>
+                    </tr>
+                </table>
+                
+                <p><strong>What's Included:</strong> Complete visual identity system (logo, guidelines, packaging templates for 120 SKUs, social media templates, PR materials)</p>
+            </div>
+            
+            <div class="card mb-xl">
+                <h3 class="mb-md">WEBSITE DEVELOPMENT — €30,000</h3>
+                
+                <table class="table mb-lg">
+                    <tr>
+                        <td>UX/UI Design</td>
+                        <td>150 hours @ €65/hr</td>
+                        <td>€9,750</td>
+                        <td>Sold @ <strong>€10,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Full Stack Development</td>
+                        <td>100 hours @ €70/hr</td>
+                        <td>€7,000</td>
+                        <td>Sold @ <strong>€10,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>QA & Testing</td>
+                        <td>150 hours @ €40/hr</td>
+                        <td>€6,000</td>
+                        <td>Sold @ <strong>€10,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Total Internal Cost</strong></td>
+                        <td colspan="2"><strong>€22,750</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Gross Total</strong></td>
+                        <td colspan="2"><strong>€30,000</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Margin</strong></td>
+                        <td colspan="2"><strong>€7,250 (32%)</strong></td>
+                    </tr>
+                </table>
+                
+                <p><strong>What's Included:</strong> 30+ responsive pages, full e-commerce platform, 120 SKU catalogue, multilingual setup, SEO optimization, business automation</p>
+            </div>
+            
+            <div class="card">
+                <h3 class="mb-xl">MARKETING RETAINER — PERFORMANCE-FOCUSED GROWTH</h3>
+                
+                <p class="mb-lg"><strong>Team Structure Per Package:</strong></p>
+                <ul class="mb-xl">
+                    <li>Digital Marketing Executive: €35/hr (execution & campaign management)</li>
+                    <li>Creative Specialist: €55/hr (content design & brand assets)</li>
+                </ul>
+                
+                <div class="grid grid-3">
+                    <div class="card">
+                        <h4 class="mb-md">40-Hour Package</h4>
+                        <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">€1,800/month</p>
+                        
+                        <p class="mb-md"><strong>Cost Breakdown:</strong></p>
+                        <ul class="mb-md" style="font-size: 0.875rem;">
+                            <li>DME: 30hrs @ €35/hr = €1,050</li>
+                            <li>Creative: 10hrs @ €55/hr = €550</li>
+                            <li><strong>Total Cost: €1,600</strong></li>
+                            <li><strong>Margin: €200 (12.5%)</strong></li>
+                        </ul>
+                        
+                        <p class="mb-sm"><strong>Annual Value:</strong> €21,600</p>
+                        
+                        <p class="mb-sm mt-lg"><strong>Deliverables:</strong></p>
+                        <ul style="font-size: 0.875rem;">
+                            <li>Weekly social content (3-4 posts)</li>
+                            <li>Multi-channel paid campaigns (Meta + Google)</li>
+                            <li>Basic audience targeting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4 class="mb-md">60-Hour Package</h4>
+                        <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">€3,000/month</p>
+                        
+                        <p class="mb-md"><strong>Cost Breakdown:</strong></p>
+                        <ul class="mb-md" style="font-size: 0.875rem;">
+                            <li>DME: 40hrs @ €35/hr = €1,400</li>
+                            <li>Creative: 20hrs @ €55/hr = €1,100</li>
+                            <li><strong>Total Cost: €2,500</strong></li>
+                            <li><strong>Margin: €500 (20%)</strong></li>
+                        </ul>
+                        
+                        <p class="mb-sm"><strong>Annual Value:</strong> €36,000</p>
+                        
+                        <p class="mb-sm mt-lg"><strong>Deliverables:</strong></p>
+                        <ul style="font-size: 0.875rem;">
+                            <li>Weekly content (5-7 posts)</li>
+                            <li>Multi-channel campaigns</li>
+                            <li>KPI & conversion tracking</li>
+                            <li>A/B testing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4 class="mb-md">90-Hour Package</h4>
+                        <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">€4,200/month</p>
+                        
+                        <p class="mb-md"><strong>Cost Breakdown:</strong></p>
+                        <ul class="mb-md" style="font-size: 0.875rem;">
+                            <li>DME: 60hrs @ €35/hr = €2,100</li>
+                            <li>Creative: 30hrs @ €55/hr = €1,650</li>
+                            <li><strong>Total Cost: €3,750</strong></li>
+                            <li><strong>Margin: €450 (12%)</strong></li>
+                        </ul>
+                        
+                        <p class="mb-sm"><strong>Annual Value:</strong> €50,400</p>
+                        
+                        <p class="mb-sm mt-lg"><strong>Deliverables:</strong></p>
+                        <ul style="font-size: 0.875rem;">
+                            <li>High-volume daily posting</li>
+                            <li>Sophisticated campaigns</li>
+                            <li>Advanced funnel optimization</li>
+                            <li>Dedicated account management</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Upsell Options -->
+    <div class="section section-gray">
+        <div class="container-narrow">
+            <h2 class="mb-xl">4. UPSELL OPTIONS</h2>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <h3 class="mb-md">OPTION 1: In-Depth SEO Strategy</h3>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">€4,500</p>
+                    
+                    <p class="mb-md"><strong>What's Included:</strong></p>
+                    <ul class="mb-lg">
+                        <li>Competitive SEO audit and gap analysis</li>
+                        <li>Keyword research (200+ high-intent keywords)</li>
+                        <li>Backlink strategy and domain building</li>
+                        <li>12-month content roadmap</li>
+                    </ul>
+                    
+                    <p class="mb-md"><strong>Impact:</strong> 30-50% increase in organic search traffic within 6 months, reduced acquisition cost.</p>
+                    
+                    <p><strong>When to Add:</strong> If organic search is a priority channel or you want to reduce ad spend dependency.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="mb-md">OPTION 2: On-Site Brand Immersion Day</h3>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">€2,800</p>
+                    
+                    <p class="mb-md"><strong>What's Included:</strong></p>
+                    <ul class="mb-lg">
+                        <li>Full-day session at your facility</li>
+                        <li>Professional photo/video shoot</li>
+                        <li>Stakeholder interviews and brand story development</li>
+                        <li>Product deep-dive and documentation</li>
+                    </ul>
+                    
+                    <p class="mb-md"><strong>Impact:</strong> Authentic content library (50+ professional images, 5+ video clips), eliminates stock photo reliance.</p>
+                    
+                    <p><strong>When to Add:</strong> Immediately during brand refresh phase for maximum authentic content.</p>
+                </div>
+                
+                <div class="card">
+                    <h3 class="mb-md">OPTION 3: Conversion Optimization</h3>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">€6,000</p>
+                    <p class="caption mb-lg">3-month program</p>
+                    
+                    <p class="mb-md"><strong>What's Included:</strong></p>
+                    <ul class="mb-lg">
+                        <li>Customer journey mapping</li>
+                        <li>Heatmap analysis and session recordings</li>
+                        <li>Conversion funnel bottleneck identification</li>
+                        <li>A/B testing program</li>
+                    </ul>
+                    
+                    <p class="mb-md"><strong>Impact:</strong> 15-30% conversion rate improvement. Typical payback: 2-3 months.</p>
+                    
+                    <p><strong>When to Add:</strong> After 3 months of website launch once baseline data is established.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Commercial Summary -->
+    <div class="section">
+        <div class="container-narrow">
+            <h2 class="mb-xl">5. COMMERCIAL SUMMARY</h2>
+            
+            <div class="card" style="background: var(--color-gray-50); border: none;">
+                <h3 class="mb-lg">Value Delivered:</h3>
+                <ul class="mb-xl">
+                    <li>Complete brand transformation with professional market positioning</li>
+                    <li>High-performing e-commerce platform owned entirely by you (no vendor lock-in)</li>
+                    <li>12 months of strategic marketing execution with measurable outcomes</li>
+                    <li>Customer data insights and analytics infrastructure for future growth</li>
+                </ul>
+                
+                <h3 class="mb-lg">What Success Looks Like:</h3>
+                <ul class="mb-xl">
+                    <li><strong>Month 3:</strong> New brand identity live, website generating first online orders</li>
+                    <li><strong>Month 6:</strong> 40% increase in qualified leads, 25% boost in e-commerce revenue</li>
+                    <li><strong>Month 12:</strong> Established digital presence, predictable customer acquisition cost, data-driven marketing playbook</li>
+                </ul>
+                
+                <h3 class="mb-lg">Risk Mitigation:</h3>
+                <ul>
+                    <li>Phased approach allows course correction every 4-6 weeks</li>
+                    <li>Monthly KPI reviews ensure marketing spend efficiency</li>
+                    <li>All brand and website assets owned by Phoenix (full IP transfer)</li>
+                    <li>No vendor lock-in: you can take website, brand files, and continue independently anytime</li>
+                </ul>
+            </div>
+            
+            <div class="card mt-xl" style="border-left: 4px solid var(--color-accent);">
+                <h3 class="mb-lg">Risk & Contingency Approach</h3>
+                
+                <div class="mb-lg">
+                    <h4 class="mb-md">Brand Development:</h4>
+                    <p>Two full revision cycles are included across all deliverables. The logo and brand guidelines constitute essential deliverables under the base scope. All additional brand materials (social templates, PR assets) will be delivered in editable design formats for client-side customization. Requests beyond two revision rounds or additional design applications will be quoted separately as change orders.</p>
+                </div>
+                
+                <div class="mb-lg">
+                    <h4 class="mb-md">Website Development:</h4>
+                    <p>Product catalogue details (names, descriptions, pricing, images, specifications) must be provided and confirmed before design development commences. Any unflagged issues or bugs not identified before the end of Week 14 (execution phase completion) fall outside the base scope and will be addressed under separate support arrangements. Technical integration issues with third-party applications will be resolved through Bullshark-provided alternatives at no additional cost to the client.</p>
+                </div>
+                
+                <div style="margin-bottom: 0;">
+                    <h4 class="mb-md">Marketing Retainer:</h4>
+                    <p style="margin-bottom: 0;">Campaign strategies require time to generate measurable results, and all content must be reviewed and approved two weeks prior to the scheduled publication date. Additional scope requests (extra campaigns, rush projects) may be accommodated either through separate billing or by reducing the monthly content volume proportionally. Monthly hour allocations provide built-in flexibility to adapt to shifting priorities without formal contingency buffers.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="section-dark">
+        <div class="container" style="text-align: center;">
+            <div class="caption mb-md text-accent">CAPABILITY TEST SUBMISSION</div>
+            <p style="color: var(--color-gray-400);">Task #1: Proposal Scoping, Costing and Value Logic</p>
+            <p class="caption" style="color: var(--color-gray-500); margin-top: 1rem;">Submitted for Bullshark Digital — Sales Operations Specialist Role</p>
+        </div>
+    </div>
+
+</body>
+</html>
